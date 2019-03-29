@@ -50,5 +50,16 @@ router.post("/", (req, res) => {
         });
     }
   });
+  // delete
+router.delete("/:id", (req, res) => {
+    const { id } = req.params;
+    Projects.remove(id)
+      .then((data) => res.json(data))
+      .catch((data) =>
+        res.status(500).json({
+          errorMessage: "Oooohhpppps"
+        })
+      );
+  });
 
 module.exports = router;
