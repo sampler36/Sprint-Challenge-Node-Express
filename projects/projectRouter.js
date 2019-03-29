@@ -13,6 +13,7 @@ router.get("/", (req, res) => {
       })
     );
 });
+// insert
 router.post("/", (req, res) => {
     const name = req.body;
     Projects.insert(name)
@@ -24,6 +25,30 @@ router.post("/", (req, res) => {
           errorMessage: "Reload the ting"
         })
       );
+  });
+//   update
+  router.put("/:id", (req, res) => {
+    const { id } = req.params;
+    if (id) {
+      Projects.update(id, { 
+          description: req.body.description,
+          name: req.body.name
+       })
+        .then((data) => {
+          if (data) {
+            Projects.get().then((data) => res.json(data));
+          } else {
+            res.status(404).json({
+              errorMessage: "ID not found"
+            });
+          }
+        })
+        .catch((err) => {
+          res.status(500).json({
+            errorMessage: "Error"
+          });
+        });
+    }
   });
 
 module.exports = router;
