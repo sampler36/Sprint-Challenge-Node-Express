@@ -62,4 +62,17 @@ router.delete("/:id", (req, res) => {
       );
   });
 
+
+  // additional missing project action getbyId
+router.get("/actions/:id", (req, res) => {
+    Projects.getProjectActions(req.params.id)
+      .then((data) => res.json(data))
+      .catch((data) =>
+        res.status(500).json({
+          errorMessage: "Something New"
+        })
+      );
+  });
+  
+
 module.exports = router;
