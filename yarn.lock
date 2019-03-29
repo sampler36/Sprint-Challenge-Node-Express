@@ -15,6 +15,11 @@
   resolved "https://registry.yarnpkg.com/@types/bluebird/-/bluebird-3.5.26.tgz#a38c438ae84fa02431d6892edf86e46edcbca291"
   integrity sha512-aj2mrBLn5ky0GmAg6IPXrQjnN0iB/ulozuJ+oZdrHRAzRbXjGmu4UXsNCjFvPbSaaPZmniocdOzsM392qLOlmQ==
 
+Router@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/Router/-/Router-2.1.0.tgz#52e4298a91645d45b33167648ae0cf386c84d6e4"
+  integrity sha1-UuQpipFkXUWzMWdkiuDPOGyE1uQ=
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
