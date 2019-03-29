@@ -27,5 +27,28 @@ router.post("/", (req, res) => {
       })
     );
 });
+router.put("/:id", (req, res) => {
+  const { id } = req.params;
+  if (id) {
+    Actions.update(id, { 
+        description: req.body.description,
+        notes: req.body.notes
+     })
+      .then((data) => {
+        if (data) {
+          Actions.get().then((data) => res.json(data));
+        } else {
+          res.status(404).json({
+            errorMessage: "ID not found"
+          });
+        }
+      })
+      .catch((err) => {
+        res.status(500).json({
+          errorMessage: "Error"
+        });
+      });
+  }
+});
 
 module.exports = router;
