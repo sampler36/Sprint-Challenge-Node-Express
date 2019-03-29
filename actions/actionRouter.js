@@ -30,10 +30,10 @@ router.post("/", (req, res) => {
 router.put("/:id", (req, res) => {
   const { id } = req.params;
   if (id) {
-    Actions.update(id, { 
-        description: req.body.description,
-        notes: req.body.notes
-     })
+    Actions.update(id, {
+      description: req.body.description,
+      notes: req.body.notes
+    })
       .then((data) => {
         if (data) {
           Actions.get().then((data) => res.json(data));
@@ -49,6 +49,18 @@ router.put("/:id", (req, res) => {
         });
       });
   }
+});
+
+// delete
+router.delete("/:id", (req, res) => {
+  const { id } = req.params;
+  Actions.remove(id)
+    .then((data) => res.json(data))
+    .catch((data) =>
+      res.status(500).json({
+        errorMessage: "Oooohhpppps"
+      })
+    );
 });
 
 module.exports = router;
