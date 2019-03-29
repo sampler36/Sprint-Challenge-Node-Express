@@ -1,5 +1,5 @@
 const express = require("express");
-const Actions = require("../data/dbConfig");
+const Actions = require("./actionModel");
 const router = express.Router();
 
 router.use(express.json());
